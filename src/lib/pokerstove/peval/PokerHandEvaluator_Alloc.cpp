@@ -50,10 +50,14 @@ std::shared_ptr<PokerHandEvaluator> PokerHandEvaluator::alloc (const string & in
     {
       auto ohigh = new UniversalHandEvaluator (4,4,3,5,2,&CardSet::evaluateHigh, NULL);
       auto ohighlow8 = new UniversalHandEvaluator (4,4,3,5,2,&CardSet::evaluateHigh, NULL);
-      if (strid == "o6" || strid == "o5") {
-        ret.reset (new UniversalHandEvaluator (4,4,3,5,2,&CardSet::evaluateHigh, NULL));
-      } else if (strid == "o5/8" || strid == "o6/8") {
-        ret.reset (new UniversalHandEvaluator (4,4,3,5,2, &CardSet::evaluateHigh, &CardSet::evaluate8LowA5));
+      if (strid == "o6") {
+        ret.reset (new UniversalHandEvaluator (6,6,3,5,2,&CardSet::evaluateHigh, NULL));
+      } else if (strid == "o6/8") {
+        ret.reset (new UniversalHandEvaluator (6,6,3,5,2, &CardSet::evaluateHigh, &CardSet::evaluate8LowA5));
+      } else if (strid == "o5") {
+        ret.reset (new UniversalHandEvaluator (5,5,3,5,2,&CardSet::evaluateHigh, NULL));
+      } else if (strid == "o5/8") {
+        ret.reset (new UniversalHandEvaluator (5,5,3,5,2, &CardSet::evaluateHigh, &CardSet::evaluate8LowA5));
       } else if (strid == "o") {
         ret.reset (new OmahaHighHandEvaluator);
       } else if (strid == "o/8") {
