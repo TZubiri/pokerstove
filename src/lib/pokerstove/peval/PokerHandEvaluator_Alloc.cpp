@@ -48,8 +48,6 @@ std::shared_ptr<PokerHandEvaluator> PokerHandEvaluator::alloc (const string & in
 
     case 'o':		//     omaha
     {
-      auto ohigh = new UniversalHandEvaluator (4,4,3,5,2,&CardSet::evaluateHigh, NULL);
-      auto ohighlow8 = new UniversalHandEvaluator (4,4,3,5,2,&CardSet::evaluateHigh, NULL);
       if (strid == "o6") {
         ret.reset (new UniversalHandEvaluator (6,6,3,5,2,&CardSet::evaluateHigh, NULL));
       } else if (strid == "o6/8") {
